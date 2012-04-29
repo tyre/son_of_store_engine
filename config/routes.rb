@@ -1,7 +1,6 @@
 StoreEngine::Application.routes.draw do
 
-  match 'profile' => "stores#new"
-  root :to => "static_pages#home"
+  match 'profile' => "users#show"
   resources :users, only: [:show, :create, :new, :update]
   resources :stores, only: [:index, :new, :create]
   get "guest/new" => "guest#new", as: "new_guest"
@@ -21,7 +20,7 @@ StoreEngine::Application.routes.draw do
   match '/admin/stores', :to => 'admin/stores#index'
 
   namespace :admin do
-    resources :stores, only: [ :index, :update ]
+    resources :stores, only: [ :index, :update, :show ]
   end
 
   scope "", constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' } do
@@ -53,7 +52,9 @@ StoreEngine::Application.routes.draw do
     end
   end
 
+  root :to => "static_pages#home"
   # mount Resque::Server, :at => "/resque"
+
   #match '/code' => redirect("https://github.com/mikesea/store_engine"), :as => :code
   #root :to => "products#index"
 
