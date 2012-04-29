@@ -1,19 +1,18 @@
 class UsersController < ApplicationController
   before_filter :is_current_user?, only: [ :show ]
+  skip_after_filter :set_last_page, :only => ["new", "create"]
 
   def new
     @user = User.new
   end
 
   def create
+    last_page = session[:last_page]
     user_info = params[:user]
     @user = User.new(user_info)
-    if @user.save
-      @user.confirm_signup
-      cart = current_cart
-      if user = login(user_info[:email], user_info[:password])
-        successful_login(cart, user)
-      end
+    if @user.save && user = login(user_info[:email], user_info[:password])
+        successful_login(current_cart, user)
+        redirect_to last_page || root_path
     else
       render :new
     end
@@ -32,6 +31,5 @@ class UsersController < ApplicationController
   def successful_login(cart, user)
     cart.assign_cart_to_user(user)
     flash[:message] = "Sign-up complete! You're now logged in!"
-    redirect_to session[:last_page] || root_path
   end
 end

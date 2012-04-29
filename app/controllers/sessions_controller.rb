@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     last_page = session[:last_page]
     logout
     reset_session
-    redirect_to last_page, :notice => "Logged out."
+    redirect_to root_path, :notice => "Logged out."
   end
 
   private

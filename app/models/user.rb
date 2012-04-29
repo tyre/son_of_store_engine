@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :shipping_details
   has_one :cart
 
+  after_create :confirm_signup
+
   def add_order(order)
     self.orders << order
   end
