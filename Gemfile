@@ -12,6 +12,7 @@ gem 'rake'
 gem 'twilio-ruby'
 gem 'newrelic_rpm'
 gem 'resque'
+gem "redis-store", "~> 1.0.0"
 gem 'tlsmail'
 #gem 'rack-perftools_profiler', :require => 'rack/perftools_profiler'
 
