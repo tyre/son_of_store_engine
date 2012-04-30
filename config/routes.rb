@@ -1,5 +1,9 @@
 StoreEngine::Application.routes.draw do
 
+
+
+  ## Testing API for navbar contents via javascript request
+  match '/navbar/contents' => "nav_bar_api#contents"
   match 'profile' => "users#show"
   resources :users, only: [:show, :create, :new, :update]
   resources :stores, only: [:index, :new, :create]
