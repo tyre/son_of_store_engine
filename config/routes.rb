@@ -16,6 +16,8 @@ StoreEngine::Application.routes.draw do
   post "guest/order" => "guest#guest_order", as: "guest_order"
   resource  :cart, only: [:show, :update]
 
+  resource :navbar, only: [:contents]
+
   resources :sessions
   resources :cart_products, only: [:new, :update, :destroy]
 

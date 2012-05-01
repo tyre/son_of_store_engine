@@ -76,7 +76,7 @@ private
   end
 
   def set_last_page
-    unless request.url == signin_url || request.url == signup_url
+    unless request.url == signin_url || request.url == signup_url || request.url == navbar_contents_url
       session[:last_page] = request.url
     end
   end

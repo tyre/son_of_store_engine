@@ -1,7 +1,7 @@
 class NavBarApiController < ApplicationController
   def contents
+    cart_link = "<li id='cart-menu'><a href=#{cart_path}><i class='icon-shopping-cart icon-white'></i>&nbsp;&nbsp;Cart (#{current_cart.cart_count})</a></li>"
     if current_user
-      cart_link = "<li id='cart-menu'><a href=#{cart_path}><i class='icon-shopping-cart icon-white'></i>&nbsp;&nbsp;Cart #{current_cart.cart_count}</a></li>"
       profile_link = "<li><a href = '#{user_path(current_user)}'>
                           <i class='icon-user icon-white'></i>&nbsp;&nbsp;#{current_user.name}</a>
 
@@ -14,7 +14,6 @@ class NavBarApiController < ApplicationController
                        #:cart_count => current_cart.cart_count,
                       #}.to_json
     else
-      cart_link = "<li id='cart-menu'><a href=#{cart_path}><i class='icon-shopping-cart icon-white'></i>&nbsp;&nbsp;Cart #{current_cart.cart_count}</a></li>"
       signin_link = "<li><a href = '#{signin_path}'>Sign in</a></li>"
       signup_link = "<li><a href = '#{signup_path}'>Register</a></li>"
       render :text => cart_link + signin_link + signup_link

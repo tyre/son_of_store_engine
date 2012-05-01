@@ -34,8 +34,8 @@
 //});
 
   $(document).ready( function(){
-    $.get("navbar/contents", function(data){
-      alert(data);
+    $.get("/navbar/contents", function(data){
+      //alert(data);
       $('ul#nav_bar').append(data)});
   });
 
@@ -46,4 +46,3 @@
     else return confirm;
   };
 
-})
