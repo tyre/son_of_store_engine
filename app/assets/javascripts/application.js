@@ -36,7 +36,7 @@
 
 
 $(document).ready( function(){
-  $.getJSON("navbar/contents", function(data){
+  $.get("navbar/contents", function(data){
     //alert(data);
-    //$('ul.nav-bar').append(data)});
+    $('ul#nav_bar').append(data)});
 });
