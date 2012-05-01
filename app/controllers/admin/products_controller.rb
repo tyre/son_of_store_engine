@@ -1,23 +1,25 @@
 class Admin::ProductsController < Admin::ApplicationController
+  skip_before_filter :is_admin?
+  before_filter :is_stocker_or_admin?
 
   def index
-    @products = Product.active.all
-    @retired_products = Product.retired.all
-    @categories = Category.all
+    @products = store.products.active.all
+    @retired_products = store.products.retired
+    @categories = store.categories.all
   end
 
   def new
     @product = Product.new
-    @categories = Category.all
+    @categories = store.categories.all
   end
 
   def create
     @product = Product.create(params[:product])
-    @categories = Category.all
+    @categories = @product.categories
 
     if @product.save
       @product.update_categories(params[:categories][1..-1])
-      redirect_to admin_product_path(@product),
+      redirect_to admin_products_path,
         notice: 'Product was successfully created.'
     else
       @product.errors.full_messages.each do |msg|

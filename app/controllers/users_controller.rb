@@ -8,11 +8,13 @@ class UsersController < ApplicationController
 
   def create
     user_info = params[:user]
+    last_page = params[:last_page] || session[:last_page]
     @user = User.new(user_info)
     if @user.save
       cart = current_cart
       if user = login(user_info[:email], user_info[:password])
-        successful_login(cart, user)
+        session[:last_page] = last_page
+        successful_first_login(cart, user)
       end
     else
       render :new
@@ -28,15 +30,4 @@ private
   def is_current_user?
     redirect_to_last_page unless User.find_by_id(params[:id]) == current_user
   end
-
-  def successful_login(cart, user)
-    cart.assign_cart_to_user(user)
-    if session[:return_to_url]
-      redirect_to session[:return_to_url]
-    else
-      flash[:message] = "Sign-up complete! You're now logged in!"
-      redirect_to root_path
-    end
-  end
-
 end

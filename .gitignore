@@ -20,5 +20,10 @@
 # Ignore exec
 /exec
 
+.DS_Store
+
 # I'm not even sure what this is
 dump.rdb
+
+#don't give out the secrets!
+/config/database.yml

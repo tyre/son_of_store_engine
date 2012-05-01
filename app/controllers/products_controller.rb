@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
+  before_filter :is_store_approved?, only: [ :show, :index ]
 
   def index
-    @categories = Category.where(:store_id => store.id)
-    @products = Product.where(:store_id => store.id)
+    @categories = store.categories
+    @products = store.products
   end
 
   def show
