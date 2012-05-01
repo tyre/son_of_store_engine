@@ -1,7 +1,7 @@
 StoreEngine::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-
+  config.gem "newrelic_rpm"
   
   #config.action_controller.session = { :domain => ".[domain].com" }
 

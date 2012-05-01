@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :is_store_approved?, only: [ :show, :index ]
+  caches_page :index
 
   def index
     @categories = store.categories
