@@ -35,8 +35,17 @@
 
 
 
-$(document).ready( function(){
-  $.get("navbar/contents", function(data){
-    //alert(data);
-    $('ul#nav_bar').append(data)});
-});
+  $(document).ready( function(){
+    $.get("navbar/contents", function(data){
+      //alert(data);
+      $('ul#nav_bar').append(data)});
+  });
+
+  $.rails.confirm = function(message) {
+    if (!confirm(message)) {
+      window.location = window.location;
+    }
+    else return confirm;
+  };
+
+})
