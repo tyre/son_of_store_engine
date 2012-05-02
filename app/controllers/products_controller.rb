@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   caches_page :show
   def index
     @categories = store.categories
-    @products = store.products.page(params[:page]).per(12)
+    @products = store.products.active.page(params[:page]).per(12)
   end
 
   def show
