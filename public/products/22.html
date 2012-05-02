@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store Engine</title>
+    <link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/admin/dashboard.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/admin/orders.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/admin/products.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/calls.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/cart_products.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/carts.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/categories.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/credit_cards.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/custom.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/guest.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/orders.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/products.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/sessions.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/shipping_details.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/static_pages.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/store_admins.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/users.css?body=1" media="all" rel="stylesheet" type="text/css" />
+    <script async="async" src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/admin/dashboard.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/admin/orders.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/admin/products.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/calls.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/cart_products.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/carts.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/categories.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/credit_cards.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/guest.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/orders.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/products.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/sessions.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/shipping_details.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/static_pages.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/store_admins.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/users.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-transition.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-alert.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-button.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-carousel.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-collapse.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-modal.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-scrollspy.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-tab.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-tooltip.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-popover.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap-typeahead.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/bootstrap.js?body=1" type="text/javascript"></script>
+<script async="async" src="/assets/application.js?body=1" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="bNJMWYmgeO2PgdNanVt28aLHIcDfL0VYhv+w01x53VI=" name="csrf-token" />
+    <meta content="pk_TQLcTG3CyJ8ja1XKeyOxlb6TBwvb9" name="stripe-key" />
+  </head>
+  <body>
+   <header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a href="/" id="logo">Chez Pierre</a>
+      <nav>
+        <ul class="nav pull-right", id="nav_bar">
+          <li><a href="/stores">Stores</a></li>
+
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+    <div class="container">
+
+      <script>
+$('#add_to_cart').addClass('disabled').click(function() { return false; });
+</script>
+<ul class="thumbnails">
+  <div class="row" style="margin-bottom:20px">
+   <li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/22">The Petra Okuneva</a> 
+       <h4>Price: 20.00</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Dicta sint maiores et aspernatur facilis libero. Debitis sunt laboriosam et placeat voluptas. Rep...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/2">Scarves</a></span>
+         <span class="label"><a href="/categories/6">Jackets</a></span>
+         <span class="label"><a href="/categories/4">Boots</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=22" class="btn btn-primary " id="add_to_cart_22">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li>
+    <li class="span8">
+      <h1>The petra okuneva</h1>
+      <h4>Description:</h4><br />
+      Dicta sint maiores et aspernatur facilis libero. Debitis sunt laboriosam et placeat voluptas. Repellat ut voluptatem sed aut architecto et ipsa. Aperiam sequi ex. Molestiae praesentium fuga id nesciunt.
+      <br />
+      <br />
+      <br />
+      <a href="/products" class="btn">Back to products</a>
+    </li>
+  </div>
+</ul>
+
+      <footer class="footer">
+  <small>
+    Ed and Mike, 2012
+  </small>
+  <nav>
+    <ul>
+      <li><a href="#">TBD</a></li>
+    </ul>
+  </nav>
+</footer>
+    </br>
+      <pre class='debug_dump'>--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+action: show
+controller: products
+id: '22'
+</pre>
+    </div>
+  </body>
+</html>

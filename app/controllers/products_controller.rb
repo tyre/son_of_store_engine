@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :is_store_approved?, only: [ :show, :index ]
-  caches_page :index
-#Post.where(:published => true).paginate(:page => params[:page]).order('id DESC')
+  caches_page :show
   def index
     @categories = store.categories
     @products = store.products.page(params[:page]).per(12)
