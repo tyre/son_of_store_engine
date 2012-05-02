@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store Engine</title>
+    <link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/admin/dashboard.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/admin/orders.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/admin/products.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/calls.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/cart_products.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/carts.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/categories.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/credit_cards.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/custom.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/guest.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/orders.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/products.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/sessions.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/shipping_details.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/static_pages.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/store_admins.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/users.css?body=1" media="all" rel="stylesheet" type="text/css" />
+    <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/admin/dashboard.js?body=1" type="text/javascript"></script>
+<script src="/assets/admin/orders.js?body=1" type="text/javascript"></script>
+<script src="/assets/admin/products.js?body=1" type="text/javascript"></script>
+<script src="/assets/calls.js?body=1" type="text/javascript"></script>
+<script src="/assets/cart_products.js?body=1" type="text/javascript"></script>
+<script src="/assets/carts.js?body=1" type="text/javascript"></script>
+<script src="/assets/categories.js?body=1" type="text/javascript"></script>
+<script src="/assets/credit_cards.js?body=1" type="text/javascript"></script>
+<script src="/assets/guest.js?body=1" type="text/javascript"></script>
+<script src="/assets/orders.js?body=1" type="text/javascript"></script>
+<script src="/assets/products.js?body=1" type="text/javascript"></script>
+<script src="/assets/sessions.js?body=1" type="text/javascript"></script>
+<script src="/assets/shipping_details.js?body=1" type="text/javascript"></script>
+<script src="/assets/static_pages.js?body=1" type="text/javascript"></script>
+<script src="/assets/store_admins.js?body=1" type="text/javascript"></script>
+<script src="/assets/users.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-transition.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-alert.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-button.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-carousel.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-collapse.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-modal.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-scrollspy.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-tab.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-tooltip.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-popover.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap-typeahead.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="3bsq1FzXyW2Oss5WHRCm4KcVPFjMZ7eRELi/i7U7ZYc=" name="csrf-token" />
+    <meta content="pk_TQLcTG3CyJ8ja1XKeyOxlb6TBwvb9" name="stripe-key" />
+  </head>
+  <body>
+   <header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a href="/" id="logo">Chez Pierre</a>
+      <nav>
+        <ul class="nav pull-right", id="nav_bar">
+          <li><a href="/stores">Stores</a></li>
+
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+    <div class="container">
+      
+
+      <div class="row">
+ <div class="span12">
+   <ul class="nav nav-pills">
+     <h4>Browse by category:</h4><br />
+     <li class="active"><a href="/categories/3">Mittens</a></li><li class="active"><a href="/categories/4">Boots</a></li><li class="active"><a href="/categories/7">harrrds</a></li><li class="active"><a href="/categories/8">new cat</a></li>
+   </ul>
+ </div>
+</div>
+
+<ul class="thumbnails">
+   <div class="row" style="margin-bottom:20px">
+   <li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/21">The Mr. Carson Schultz durrrp</a> 
+       <h4>Price: 20.75</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Rerum soluta ipsa cumque. Et fugit laborum nostrum nobis. Quia similique cupiditate. Voluptas in ...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/3">Mittens</a></span>
+         <span class="label"><a href="/categories/5">Coats</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=21" class="btn btn-primary " id="add_to_cart_21">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/22">The Petra Okuneva</a> 
+       <h4>Price: 20.00</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Dicta sint maiores et aspernatur facilis libero. Debitis sunt laboriosam et placeat voluptas. Rep...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/2">Scarves</a></span>
+         <span class="label"><a href="/categories/6">Jackets</a></span>
+         <span class="label"><a href="/categories/4">Boots</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=22" class="btn btn-primary " id="add_to_cart_22">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/23">The Amir Herzog</a> 
+       <h4>Price: 24.00</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Ut praesentium voluptatem voluptatibus tenetur aperiam. Asperiores nam enim reprehenderit aliquam...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/6">Jackets</a></span>
+         <span class="label"><a href="/categories/2">Scarves</a></span>
+         <span class="label"><a href="/categories/1">Hats</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=23" class="btn btn-primary " id="add_to_cart_23">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li>
+   </div>
+   <div class="row" style="margin-bottom:20px">
+   <li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/24">The Mr. Ignatius Balistreri</a> 
+       <h4>Price: 17.75</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Ipsam nulla illo quo. Sed est ipsum quasi autem aut. Tempore assumenda qui ipsum. Repellendus con...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/5">Coats</a></span>
+         <span class="label"><a href="/categories/6">Jackets</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=24" class="btn btn-primary disabled" id="add_to_cart_24">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/25">The Leonora Gottlieb</a> 
+       <h4>Price: 18.75</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Nostrum dolores eum cum. Qui fuga nobis voluptas amet sequi. Iste natus blanditiis.</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/3">Mittens</a></span>
+         <span class="label"><a href="/categories/4">Boots</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=25" class="btn btn-primary " id="add_to_cart_25">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/26">The Miss Emelia Heller</a> 
+       <h4>Price: 23.75</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Aut repudiandae ullam. Sint voluptatem maxime blanditiis totam aut. Modi et aut necessitatibus vo...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/1">Hats</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=26" class="btn btn-primary " id="add_to_cart_26">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li>
+   </div>
+   <div class="row" style="margin-bottom:20px">
+   <li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/27">The Brock Hegmann DVM</a> 
+       <h4>Price: 15.50</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Praesentium veniam aut consequatur magnam ducimus in quas. Harum quae aliquid architecto. Laborio...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/4">Boots</a></span>
+         <span class="label"><a href="/categories/1">Hats</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=27" class="btn btn-primary " id="add_to_cart_27">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/28">The Jerel Durgan</a> 
+       <h4>Price: 16.25</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Quas corporis modi voluptatibus quasi consequatur et. Voluptas qui ullam consequatur enim eum. Do...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/2">Scarves</a></span>
+         <span class="label"><a href="/categories/5">Coats</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=28" class="btn btn-primary " id="add_to_cart_28">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/29">The Percy Braun I</a> 
+       <h4>Price: 19.75</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Eveniet veritatis eos itaque fuga fugit aut distinctio. Laboriosam excepturi iusto omnis nesciunt...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/2">Scarves</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=29" class="btn btn-primary " id="add_to_cart_29">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li>
+   </div>
+   <div class="row" style="margin-bottom:20px">
+   <li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/30">The Drake Doyle</a> 
+       <h4>Price: 17.00</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Labore dolores autem quia. Sunt placeat et est minus dolor. Alias quod sint eveniet qui. Perspici...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/5">Coats</a></span>
+         <span class="label"><a href="/categories/6">Jackets</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=30" class="btn btn-primary " id="add_to_cart_30">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/31">The Izaiah Spinka</a> 
+       <h4>Price: 22.00</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Quia totam sunt voluptatibus ex quisquam voluptas. Impedit doloremque sit consequuntur qui. Facer...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/5">Coats</a></span>
+         <span class="label"><a href="/categories/4">Boots</a></span>
+         <span class="label"><a href="/categories/1">Hats</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=31" class="btn btn-primary " id="add_to_cart_31">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li><li class="span4">
+ <div class="thumbnail">
+   <img alt="Jpby7" class="thumbnail" height="280" src="http://i.imgur.com/JPby7.jpg" width="280" />
+   <div class="caption">
+   <p>
+       <a href="/products/32">The Garrison Greenfelder</a> 
+       <h4>Price: 15.00</h4>
+   </p>
+   <h5>Description</h5>
+   <p>Aut vero cum animi fuga. Nemo ut aut cum laudantium sunt aliquid dicta. Dolor sit consequatur non...</p>
+   <p>
+     <h6>Categories:<h6><br />
+         <span class="label"><a href="/categories/6">Jackets</a></span>
+   </p>
+   <p>
+     <a href="/cart_products/new?product_id=32" class="btn btn-primary " id="add_to_cart_32">Add to cart</a>
+   </p>
+   </div>
+ </div>
+</li>
+   </div>
+</ul>
+
+  <div class="pagination">
+    <ul>
+    
+    
+        <li class="page active">
+  <a href="/products">1</a>
+</li>
+
+        <li class="page">
+  <a href="/products?page=2" rel="next">2</a>
+</li>
+
+        <li class="page">
+  <a href="/products?page=3">3</a>
+</li>
+
+        <li class="page">
+  <a href="/products?page=4">4</a>
+</li>
+
+    <li class="next_page">
+  <a href="/products?page=2" rel="next">Next &rsaquo;</a>
+</li>
+
+    <li class="last next">
+  <a href="/products?page=4">Last &raquo;</a>
+</li>
+
+    </ul>
+  </div>
+
+
+      <footer class="footer">
+  <small>
+    Ed and Mike, 2012
+  </small>
+  <nav>
+    <ul>
+      <li><a href="#">TBD</a></li>
+    </ul>
+  </nav>
+</footer>
+    </br>
+      <pre class='debug_dump'>--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+action: index
+controller: products
+</pre>
+    </div>
+  </body>
+</html>
