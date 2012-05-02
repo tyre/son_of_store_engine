@@ -9,7 +9,7 @@ describe "Using the shopping cart" do
     set_host("best-sunglasses")
     visit store_path
   end
-  context "when I'm on the cart page" do
+  context "when I'm on the cart page", js: true  do
 
     context "and I haven't added any products" do
       it "should notify customer that there is nothing in the cart" do
@@ -21,7 +21,7 @@ describe "Using the shopping cart" do
     end
   end
 
-  context "when I'm on a product page" do
+  context "when I'm on a product page", js: true  do
     before(:each) { visit product_path(product) }
 
     context "and I click 'add to cart'" do
@@ -115,7 +115,7 @@ describe "Using the shopping cart" do
     end
   end
 
-  context "when I have products in my cart" do
+  context "when I have products in my cart", js: true  do
     before(:each) do
       visit product_path(product)
       click_link("Add to cart")
@@ -203,7 +203,7 @@ describe "Using the shopping cart" do
       end
     end
 
-    context "and I'm on the cart page" do
+    context "and I'm on the cart page", js: true  do
       before(:each) { visit cart_path }
 
       context "when I try to update the quantity of a product" do

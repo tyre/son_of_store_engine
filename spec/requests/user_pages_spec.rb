@@ -4,7 +4,7 @@ describe "User pages" do
   let(:user) { FactoryGirl.create(:user) }
   let!(:store) { FactoryGirl.create(:store, :owner_id => user.id) }
 
-  describe "signin page" do
+  describe "signin page", js: true  do
     before { visit signin_path }
 
     it "has a registration link" do
@@ -12,7 +12,7 @@ describe "User pages" do
     end
   end
 
-  describe "signup page" do
+  describe "signup page", js: true  do
     before { visit signup_path }
 
     # it { should have_field('user_email', :type => 'text') }
@@ -40,7 +40,7 @@ describe "User pages" do
     end
   end
 
-  context "when not signed in" do
+  context "when not signed in", js: true  do
     before { visit root_path }
 
     it "has a sign up link" do
@@ -53,7 +53,7 @@ describe "User pages" do
       page.should have_selector('#registration_page')
     end
 
-    context "creating a new user" do
+    context "creating a new user", js: true  do
       before(:each) do
         click_link_or_button('Register')
         @user_name = Faker::Name.name
@@ -61,7 +61,7 @@ describe "User pages" do
         @user_display_name = Faker::Internet.user_name
       end
 
-      describe "when I enter my email address, full name, and display name and click create" do
+      describe "when I enter my email address, full name, and display name and click create", js: true  do
         before(:each) do
           fill_in "email", with: @user_email
           fill_in "name", with: @user_name
@@ -71,11 +71,9 @@ describe "User pages" do
           click_link_or_button('Create Account')
         end
 
-        it "sends me to the page I was on" do
-          pending "TODO: Look into how to test what page was on/what page getting sent to. Feature is imp'd -JQ"
-        end
 
         it "shows a flash message" do
+          sleep 10
           page.should have_selector("#alert")
         end
 
@@ -121,7 +119,7 @@ describe "User pages" do
 
       end
 
-      describe "visitor uses duplicate email address" do
+      describe "visitor uses duplicate email address", js: true  do
         before(:each) do
           FactoryGirl.create(:user, :email => @user_email)
           fill_in "email", with: @user_email
@@ -150,7 +148,7 @@ describe "User pages" do
 
       end
 
-      describe "visitor omits display name" do
+      describe "visitor omits display name", js: true  do
         before(:each) do
           fill_in "email", with: @user_email
           fill_in "name", with: @user_name
@@ -174,13 +172,6 @@ describe "User pages" do
         it "includes a link to view the new profile" do
           page.should have_content("My Profile")
         end
-
-        it "sends an email confirmation" do
-          pending "This is handled via the queue. Change the test to match"
-          # ActionMailer::Base.deliveries.last.to.should == [@user_email]
-          # ActionMailer::Base.deliveries.last.subject.should == "Welcome to Store Engine!"
-        end
-
 
       end
 

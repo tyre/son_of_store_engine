@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :is_store_approved?, only: [ :show, :index ]
-  caches_page :show
+
   def index
     @categories = store.categories
     @products = store.products.active.page(params[:page]).per(12)

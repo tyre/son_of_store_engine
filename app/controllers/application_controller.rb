@@ -106,8 +106,8 @@ private
   def successful_first_login(cart, user)
     cart.assign_cart_to_user(user)
     if session[:return_to_url] || session[:last_page]
-      redirect_to(session[:return_to_url] || session[:last_page])
       flash[:message] = login_message(user).html_safe
+      redirect_to(session[:return_to_url] || session[:last_page], notice: flash[:message])
     else
       redirect_to stores_path,
         :notice => "Logged in! Buy things! Capitalism!"

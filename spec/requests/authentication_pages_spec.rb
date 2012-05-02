@@ -8,7 +8,7 @@ describe "AuthenticationPages" do
 
     describe "with invalid information" do
 
-      it "displays an error message" do
+      it "displays an error message", js: true do
         click_link_or_button('Log in')
         page.should have_selector('div.alert.alert-alert', :text => 'Email or password was invalid.')
       end
@@ -25,7 +25,7 @@ describe "AuthenticationPages" do
         click_button "Log in"
       end
 
-      describe "followed by signout" do
+      describe "followed by signout", js: true  do
         it "user should sign out" do
           click_link_or_button('Sign out')
           page.should have_link('Sign in')

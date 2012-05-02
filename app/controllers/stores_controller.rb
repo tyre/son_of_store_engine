@@ -11,7 +11,8 @@ class StoresController < ApplicationController
   end
 
   def show
-    redirect_to products_path
+    message = flash[:message]
+    redirect_to products_path, notice: message.to_s
   end
 
   def create
