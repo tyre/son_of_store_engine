@@ -9,14 +9,12 @@ class UsersController < ApplicationController
   def create
     user_info = params[:user]
     last_page = params[:last_page] || session[:last_page]
+    if last_page == store_url
+      last_page = products_url
+    end
     @user = User.new(user_info)
     if @user.save
       establish_session(@user, params, last_page)
-      # cart = current_cart
-      # if user = login(user_info[:email], user_info[:password])
-      #   session[:last_page] = last_page
-      #   successful_first_login(cart, user)
-      # end
     else
       render :new
     end

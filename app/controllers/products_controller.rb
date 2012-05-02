@@ -7,9 +7,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    if session[:login_message]
-      flash[:message] = session[:login_message]
-    end
     @product = Product.find_by_id(params[:id])
     @categories = @product.categories
   end

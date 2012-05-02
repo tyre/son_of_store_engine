@@ -35,11 +35,6 @@ class ApplicationController < ActionController::Base
       current_user.admin || store.admins.include?(current_user)
   end
 
-  # def is_stocker_or_admin
-  #   redirect_to_last_page("NOT ADMIN OF THIS STORE") unless
-  #     store.store_admins.include?(current_user) || current_user.admin
-  # end
-
 private
 
   def not_found
@@ -106,9 +101,8 @@ private
   def successful_first_login(cart, user)
     cart.assign_cart_to_user(user)
     if session[:return_to_url] || session[:last_page]
-      flash[:message] = session[:login_message] = login_message(user).html_safe
-      raise session[:login_message].inspect
-      redirect_to(session[:return_to_url] || session[:last_page], notice: flash[:message])
+      flash[:message] = login_message(user).html_safe
+      redirect_to(session[:last_page] || session[:return_to_url])
     else
       redirect_to stores_path,
         :notice => "Logged in! Buy things! Capitalism!"
